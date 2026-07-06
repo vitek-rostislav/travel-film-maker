@@ -1,0 +1,1 @@
+"""GoPro-specific importer placeholder."""

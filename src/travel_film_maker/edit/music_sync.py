@@ -1,0 +1,1 @@
+"""Music synchronization placeholder."""

@@ -1,0 +1,1 @@
+"""Map shot generation placeholder."""

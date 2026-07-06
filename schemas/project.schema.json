@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://travel-film-maker.local/schemas/project.schema.json",
+  "title": "Travel Film Maker Project",
+  "type": "object",
+  "required": ["version", "project", "sources", "output", "style"],
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "project": {
+      "type": "object",
+      "required": ["id", "title", "timezone", "language", "style"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "timezone": { "type": "string" },
+        "language": { "type": "string" },
+        "style": { "type": "string" }
+      }
+    },
+    "sources": { "type": "object" },
+    "output": { "type": "object" },
+    "style": { "type": "object" }
+  }
+}

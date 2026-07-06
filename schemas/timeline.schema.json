@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://travel-film-maker.local/schemas/timeline.schema.json",
+  "title": "Travel Film Maker Timeline",
+  "type": "object",
+  "required": ["timeline"],
+  "properties": {
+    "timeline": {
+      "type": "object",
+      "required": ["fps", "tracks"],
+      "properties": {
+        "fps": { "type": "integer" },
+        "tracks": {
+          "type": "object",
+          "required": ["video", "audio"],
+          "properties": {
+            "video": { "type": "array" },
+            "audio": { "type": "array" }
+          }
+        }
+      }
+    }
+  }
+}

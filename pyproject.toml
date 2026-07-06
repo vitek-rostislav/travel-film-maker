@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "travel-film-maker"
+version = "0.1.0"
+description = "Generate documentary travel film edit plans from photos, videos, and GPS data."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [
+  { name = "Travel Film Maker contributors" }
+]
+dependencies = [
+  "PyYAML>=6.0.1"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0"
+]
+
+[project.scripts]
+travel-film-maker = "travel_film_maker.cli.main:main"
+tfm = "travel_film_maker.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
