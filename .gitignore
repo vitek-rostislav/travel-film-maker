@@ -5,3 +5,9 @@ render/
 *.mp4
 *.mov
 *.zip
+
+# Local
+.venv/
+.idea/
+__pycache__/
+*.pyc
