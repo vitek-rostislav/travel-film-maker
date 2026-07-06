@@ -1,0 +1,231 @@
+project:
+  title: "Roadtrip kolem Alp 2026"
+  subtitle: "Ostrava → Rakousko → Itálie → Rakousko → Ostrava"
+  style: "long-way-round"
+  language: "cs"
+  aspect_ratio: "16:9"
+
+trip:
+  totals:
+    drive_km: 2071
+    drive_time: "32 h 53 min"
+    walk_km: 57
+    train_note: "Bonassola ↔ Vernazza (~20 km)"
+  route:
+    - Ostrava
+    - Vídeň
+    - Maria Alm
+    - Brenner
+    - Verona
+    - Bonassola
+    - Levanto
+    - Lannach
+    - Ostrava
+
+days:
+  - id: day01
+    date: "2026-06-27"
+    title: "Vyrážíme"
+    location: "Vídeň"
+    route: "Ostrava → Vídeň"
+    country_flags: ["🇨🇿", "🇦🇹"]
+    stats:
+      drive_km: 277
+      drive_time: "3 h 43 min"
+      walk_km: 10
+    story_beats:
+      - "Balení auta a první kilometry z Ostravy"
+      - "První tankování a cestovní nálada"
+      - "Schönbrunn jako první zastávka"
+    assets:
+      folder: "assets/day01"
+    map:
+      type: "google-earth"
+      from: "Ostrava"
+      to: "Vienna"
+    mood: "start cesty, očekávání, rodinný roadtrip"
+
+  - id: day02
+    date: "2026-06-28"
+    title: "Do Alp"
+    location: "Maria Alm"
+    route: "Vídeň → Maria Alm"
+    country_flags: ["🇦🇹"]
+    stats:
+      drive_km: 205
+      drive_time: "3 h 11 min"
+      walk_km: 5
+    story_beats:
+      - "Cesta přes Rakousko do hor"
+      - "Příjezd do Maria Alm"
+      - "Lanovka, Prinzensee a skluzavky"
+    assets:
+      folder: "assets/day02"
+    map:
+      type: "google-earth"
+      from: "Vienna"
+      to: "Maria Alm"
+    mood: "první hory, dětské nadšení, alpský začátek"
+
+  - id: day03
+    date: "2026-06-29"
+    title: "Starý Brenner"
+    location: "Verona"
+    route: "Maria Alm → Verona"
+    country_flags: ["🇦🇹", "🇮🇹"]
+    stats:
+      drive_km: 400
+      drive_time: "6 h 43 min"
+      walk_km: 9
+    story_beats:
+      - "Ranní odjezd z Maria Alm"
+      - "Stará Brennerská silnice"
+      - "Výhledy na Europabrücke"
+      - "Sjezd do Itálie mezi vinicemi a hrady"
+      - "Příjezd do Verony"
+    assets:
+      folder: "assets/day03"
+    map:
+      type: "google-earth"
+      from: "Maria Alm"
+      via:
+        - "Schönberg im Stubaital"
+        - "Designer Outlet Brennero"
+      to: "Verona"
+    mood: "epická cesta, Alpy, první Itálie"
+
+  - id: day04
+    date: "2026-06-30"
+    title: "Verona"
+    location: "Verona"
+    route: "Verona"
+    country_flags: ["🇮🇹"]
+    stats:
+      drive_km: 4
+      drive_time: "33 min"
+      walk_km: 11
+    story_beats:
+      - "Arena di Verona"
+      - "Piazza delle Erbe"
+      - "Giardino Giusti"
+      - "Výhled z Castel San Pietro"
+      - "Večerní Verona"
+    assets:
+      folder: "assets/day04"
+    map:
+      type: "city"
+      location: "Verona"
+    mood: "město, horko, historie, výhledy"
+
+  - id: day05
+    date: "2026-07-01"
+    title: "K moři"
+    location: "Bonassola"
+    route: "Verona → Bonassola"
+    country_flags: ["🇮🇹"]
+    stats:
+      drive_km: 290
+      drive_time: "4 h 34 min"
+      walk_km: 0
+    story_beats:
+      - "Odjezd z Verony"
+      - "Cesta přes severní Itálii"
+      - "První příjezd k Ligurskému moři"
+      - "Bonassola místo Janova"
+    assets:
+      folder: "assets/day05"
+    map:
+      type: "google-earth"
+      from: "Verona"
+      to: "Bonassola"
+    mood: "změna tempa, příjezd k moři, odpočinek"
+
+  - id: day06
+    date: "2026-07-02"
+    title: "Cinque Terre"
+    location: "Vernazza"
+    route: "Bonassola → Vernazza"
+    country_flags: ["🇮🇹"]
+    stats:
+      drive_km: 11
+      drive_time: "49 min"
+      walk_km: 2
+    story_beats:
+      - "Vlakem z Bonassoly"
+      - "Vernazza a barevné domy"
+      - "Moře, úzké uličky a výhledy"
+    assets:
+      folder: "assets/day06"
+    map:
+      type: "train"
+      from: "Bonassola"
+      to: "Vernazza"
+    mood: "Cinque Terre, barvy, moře, turistický den"
+
+  - id: day07
+    date: "2026-07-03"
+    title: "Tunely k Levantu"
+    location: "Bonassola"
+    route: "Bonassola → Levanto → Bonassola"
+    country_flags: ["🇮🇹"]
+    stats:
+      drive_km: 19
+      drive_time: "1 h 09 min"
+      walk_km: 5
+    story_beats:
+      - "Bývalá železniční trať"
+      - "Tunely podél moře"
+      - "Syn na kole, rodiče běží"
+      - "Levanto a pláž"
+    assets:
+      folder: "assets/day07"
+    map:
+      type: "bike"
+      from: "Bonassola"
+      to: "Levanto"
+    mood: "rodinné dobrodružství, kola, tunely, Ligurie"
+
+  - id: day08
+    date: "2026-07-04"
+    title: "Zpátky přes Alpy"
+    location: "Lannach"
+    route: "Bonassola → Lannach"
+    country_flags: ["🇮🇹", "🇦🇹"]
+    stats:
+      drive_km: 492
+      drive_time: "6 h 39 min"
+      walk_km: 14
+    story_beats:
+      - "Poslední ráno u moře"
+      - "Levanto a poslední koupání"
+      - "Dlouhý přejezd do Rakouska"
+      - "Nocleh u Grazu"
+    assets:
+      folder: "assets/day08"
+    map:
+      type: "google-earth"
+      from: "Bonassola"
+      to: "Lannach"
+    mood: "loučení s mořem, návrat, dlouhý přejezd"
+
+  - id: day09
+    date: "2026-07-05"
+    title: "Domů"
+    location: "Ostrava"
+    route: "Lannach → Ostrava"
+    country_flags: ["🇦🇹", "🇨🇿"]
+    stats:
+      drive_km: 373
+      drive_time: "5 h 32 min"
+      walk_km: 0
+    story_beats:
+      - "Poslední rakouské ráno"
+      - "Cesta domů"
+      - "Závěrečné statistiky celé dovolené"
+    assets:
+      folder: "assets/day09"
+    map:
+      type: "google-earth"
+      from: "Lannach"
+      to: "Ostrava"
+    mood: "návrat, únava, rekapitulace"
