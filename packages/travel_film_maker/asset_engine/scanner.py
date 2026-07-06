@@ -13,6 +13,10 @@ VIDEO_EXTENSIONS = {".mp4", ".mov", ".m4v", ".avi", ".mkv"}
 def scan_project_assets(project: ProjectModel) -> list[Asset]:
     assets: list[Asset] = []
     for day in project.days:
+        if day.media and day.media.source:
+            continue
+        if not day.asset_folder:
+            continue
         folder = project.root_dir / day.asset_folder
         if not folder.exists():
             continue

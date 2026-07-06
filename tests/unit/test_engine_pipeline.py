@@ -38,6 +38,17 @@ def _project_yaml():
             "totals": {"drive_km": 100},
             "route": ["Ostrava", "Vienna"],
         },
+        "media_sources": [
+            {
+                "id": "google_photos_main",
+                "type": "google_photos_shared_album",
+                "url": "https://photos.app.goo.gl/example",
+                "mapping": {
+                    "default_day_strategy": "exif_date",
+                    "fallback_day_strategy": "manual",
+                },
+            }
+        ],
         "days": [
             {
                 "id": "day01",
@@ -48,7 +59,13 @@ def _project_yaml():
                 "country_flags": ["CZ", "AT"],
                 "stats": {"drive_km": 100},
                 "highlights": ["Packing the car"],
-                "assets": {"folder": "assets/day01"},
+                "media": {
+                    "source": "google_photos_main",
+                    "filters": {
+                        "date": "2026-06-27",
+                        "tags": ["vienna", "departure"],
+                    },
+                },
                 "map": {"type": "google-earth", "from": "Ostrava", "to": "Vienna"},
                 "mood": "departure",
             }

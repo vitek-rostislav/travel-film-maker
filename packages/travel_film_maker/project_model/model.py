@@ -14,6 +14,21 @@ class Route:
 
 
 @dataclass(slots=True)
+class MediaSource:
+    id: str
+    type: str
+    url: str | None = None
+    path: str | None = None
+    mapping: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass(slots=True)
+class DayMedia:
+    source: str | None = None
+    filters: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass(slots=True)
 class Day:
     id: str
     date: str
@@ -25,6 +40,7 @@ class Day:
     statistics: dict[str, Any] = field(default_factory=dict)
     mood: str | None = None
     country_flags: list[str] = field(default_factory=list)
+    media: DayMedia | None = None
 
 
 @dataclass(slots=True)
@@ -37,6 +53,7 @@ class ProjectModel:
     aspect_ratio: str
     totals: dict[str, Any]
     route: list[str]
+    media_sources: list[MediaSource]
     days: list[Day]
 
     @property
@@ -52,6 +69,7 @@ def load_project_model(path: Path) -> ProjectModel:
 def project_model_from_dict(path: Path, data: dict[str, Any]) -> ProjectModel:
     project = data.get("project", {})
     trip = data.get("trip", {})
+    media_sources = [_media_source_from_dict(source) for source in data.get("media_sources", [])]
     days = [_day_from_dict(day) for day in data.get("days", [])]
 
     return ProjectModel(
@@ -63,12 +81,24 @@ def project_model_from_dict(path: Path, data: dict[str, Any]) -> ProjectModel:
         aspect_ratio=str(project.get("aspect_ratio", "16:9")),
         totals=dict(trip.get("totals") or {}),
         route=[str(item) for item in trip.get("route", [])],
+        media_sources=media_sources,
         days=days,
+    )
+
+
+def _media_source_from_dict(data: dict[str, Any]) -> MediaSource:
+    return MediaSource(
+        id=str(data["id"]),
+        type=str(data["type"]),
+        url=data.get("url"),
+        path=data.get("path"),
+        mapping=dict(data.get("mapping") or {}),
     )
 
 
 def _day_from_dict(data: dict[str, Any]) -> Day:
     assets = data.get("assets", {})
+    media = data.get("media")
     return Day(
         id=str(data["id"]),
         date=str(data["date"]),
@@ -80,4 +110,12 @@ def _day_from_dict(data: dict[str, Any]) -> Day:
         statistics=dict(data.get("stats") or {}),
         mood=data.get("mood"),
         country_flags=[str(item) for item in data.get("country_flags", [])],
+        media=_day_media_from_dict(media) if isinstance(media, dict) else None,
+    )
+
+
+def _day_media_from_dict(data: dict[str, Any]) -> DayMedia:
+    return DayMedia(
+        source=data.get("source"),
+        filters=dict(data.get("filters") or {}),
     )

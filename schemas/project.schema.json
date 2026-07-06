@@ -26,6 +26,29 @@
         }
       }
     },
+    "media_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "enum": [
+              "google_photos_shared_album",
+              "local_folder",
+              "google_drive",
+              "icloud_export",
+              "dropbox",
+              "onedrive"
+            ]
+          },
+          "url": { "type": "string" },
+          "path": { "type": "string" },
+          "mapping": { "type": "object" }
+        }
+      }
+    },
     "days": {
       "type": "array",
       "items": {
@@ -48,9 +71,16 @@
           },
           "assets": {
             "type": "object",
-            "required": ["folder"],
             "properties": {
               "folder": { "type": "string" }
+            }
+          },
+          "media": {
+            "type": "object",
+            "required": ["source"],
+            "properties": {
+              "source": { "type": "string" },
+              "filters": { "type": "object" }
             }
           },
           "map": { "type": "object" },

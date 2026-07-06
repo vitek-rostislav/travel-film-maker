@@ -45,6 +45,17 @@ def _default_project_model(title: str) -> dict[str, object]:
             "totals": {},
             "route": ["Start", "Destination"],
         },
+        "media_sources": [
+            {
+                "id": "local_assets",
+                "type": "local_folder",
+                "path": "assets",
+                "mapping": {
+                    "default_day_strategy": "folder",
+                    "fallback_day_strategy": "manual",
+                },
+            }
+        ],
         "days": [
             {
                 "id": "day01",
@@ -56,6 +67,10 @@ def _default_project_model(title: str) -> dict[str, object]:
                 "stats": {},
                 "highlights": ["First travel day"],
                 "assets": {"folder": "assets/day01"},
+                "media": {
+                    "source": "local_assets",
+                    "filters": {"folder": "day01"},
+                },
                 "map": {"type": "route", "from": "Start", "to": "Destination"},
                 "mood": "departure",
             }
@@ -84,6 +99,7 @@ assets/
 output/
 cache/
 renders/
+.travel-film-maker-cache/
 
 # Temporary files
 *.tmp

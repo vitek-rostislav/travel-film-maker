@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from travel_film_maker.asset_engine.media_sources import summarize_media_sources
 from travel_film_maker.asset_engine.scanner import scan_project_assets
 from travel_film_maker.project_model.validation import validate_project_file
 from travel_film_maker.story_engine.scenes import build_story_scenes
@@ -28,6 +29,7 @@ def handle(args: argparse.Namespace) -> int:
 
     project = result.project
     style = load_style_profile(project)
+    media_sources = summarize_media_sources(project)
     assets = scan_project_assets(project)
     scenes = build_story_scenes(project, assets, style)
     timeline = build_normalized_timeline(project, scenes, style)
@@ -37,8 +39,14 @@ def handle(args: argparse.Namespace) -> int:
         print(f"Subtitle: {project.subtitle}")
     print(f"Style: {style.name}")
     print(f"Route: {' -> '.join(project.route)}")
+    print(f"Media sources: {len(media_sources)}")
+    for source in media_sources:
+        scope = "remote" if source.remote else "local"
+        print(f"  - {source.id} ({source.type}, {scope}): {source.status}")
     print(f"Days: {len(project.days)}")
     print(f"Assets found: {len(assets)}")
+    if any(source.remote for source in media_sources):
+        print("Remote media is referenced only; no photos or videos are downloaded by preview.")
     print(f"Scenes: {len(scenes)}")
     print(f"Timeline items: {len(timeline.items)}")
     print(f"Estimated duration: {timeline.duration_seconds()}s")

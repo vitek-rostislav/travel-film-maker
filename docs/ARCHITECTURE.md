@@ -33,6 +33,8 @@ Travel projects are external directories:
 
 Personal media, GPS tracks, music, generated output and editor caches never belong in the framework repository.
 
+External project repositories should use their generated `.gitignore` to exclude media and generated artifacts. Personal photos and videos should stay in local folders or remote media providers.
+
 ## Data Flow
 
 ```text
@@ -76,7 +78,20 @@ If `style.yaml` is missing, the framework falls back to defaults based on `proje
 
 ## Asset Engine
 
-The Asset Engine scans the external project `assets/` tree. It detects basic photo/video types and reads filesystem timestamps as a fallback. Future versions can add EXIF, GPS matching and AI-assisted selection.
+The Asset Engine reads media references from the external project.
+
+Supported source types in the data model:
+
+- `google_photos_shared_album`
+- `local_folder`
+- `google_drive`
+- `icloud_export`
+- `dropbox`
+- `onedrive`
+
+Only local folders are scanned today. Google Photos shared albums are treated as remote references; the framework does not download photos or videos by default.
+
+Optional downloaded thumbnails/previews should be stored in the project-local ignored cache, never in the framework repository.
 
 ## Story Engine
 

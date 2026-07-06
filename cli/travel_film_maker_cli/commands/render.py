@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from travel_film_maker.asset_engine.media_sources import summarize_media_sources
 from travel_film_maker.asset_engine.scanner import scan_project_assets
 from travel_film_maker.core.config import dump_json
 from travel_film_maker.project_model.validation import validate_project_file
@@ -29,6 +30,7 @@ def handle(args: argparse.Namespace) -> int:
 
     project = result.project
     style = load_style_profile(project)
+    media_sources = summarize_media_sources(project)
     assets = scan_project_assets(project)
     scenes = build_story_scenes(project, assets, style)
     timeline = build_normalized_timeline(project, scenes, style)
@@ -36,5 +38,7 @@ def handle(args: argparse.Namespace) -> int:
     dump_json(output_path, timeline.to_dict())
 
     print(f"Built normalized timeline: {output_path}")
+    if any(source.remote for source in media_sources):
+        print("Remote media sources were referenced only; no photos or videos were downloaded.")
     print("Video rendering is not implemented yet.")
     return 0
