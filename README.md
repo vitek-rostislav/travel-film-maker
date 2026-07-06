@@ -39,6 +39,10 @@ PYTHONPATH=src python -m travel_film_maker.cli.main --project-dir ./demo plan
 PYTHONPATH=src python -m travel_film_maker.cli.main --project-dir ./demo export --format fcpxml
 ```
 
+## Trip planning
+
+The root `timeline.yaml` can be used as a human-authored trip plan with `project`, `trip`, and `days` sections. When this format is detected, `tfm plan` preserves it and writes the generated edit timeline to `edit_timeline.yaml` instead of overwriting the source plan.
+
 ## Planned features
 
 - Google Photos import

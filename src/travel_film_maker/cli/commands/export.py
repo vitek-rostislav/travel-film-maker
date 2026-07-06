@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 
 from travel_film_maker.core.config import dump_json, load_yaml
+from travel_film_maker.core.trip_plan import is_trip_plan
 from travel_film_maker.export.davinci.fcpxml import export_fcpxml
 from travel_film_maker.export.opentimelineio import export_otio_json
 
@@ -19,7 +20,7 @@ def handle(args: argparse.Namespace) -> int:
     project_dir: Path = args.project_dir
     project = load_yaml(project_dir / "project.yaml")
     assets = load_yaml(project_dir / "assets.yaml")
-    timeline = load_yaml(project_dir / "timeline.yaml")
+    timeline = _load_edit_timeline(project_dir)
     export_dir = project_dir / "exports"
     export_dir.mkdir(parents=True, exist_ok=True)
 
@@ -32,3 +33,14 @@ def handle(args: argparse.Namespace) -> int:
 
     print(f"Exported {args.format} to {output}")
     return 0
+
+
+def _load_edit_timeline(project_dir: Path) -> dict[str, object]:
+    edit_timeline_path = project_dir / "edit_timeline.yaml"
+    if edit_timeline_path.exists():
+        return load_yaml(edit_timeline_path)
+
+    timeline = load_yaml(project_dir / "timeline.yaml")
+    if is_trip_plan(timeline):
+        raise RuntimeError("timeline.yaml is a trip plan. Run `plan` first to generate edit_timeline.yaml.")
+    return timeline

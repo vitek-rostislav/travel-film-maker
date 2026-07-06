@@ -27,7 +27,7 @@ def dump_yaml(path: Path, data: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as handle:
         if yaml is not None:
-            yaml.safe_dump(data, handle, sort_keys=False, allow_unicode=False)
+            yaml.safe_dump(data, handle, sort_keys=False, allow_unicode=True)
         else:
             json.dump(data, handle, indent=2)
             handle.write("\n")

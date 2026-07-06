@@ -1,0 +1,273 @@
+trip:
+  totals:
+    drive_km: 2071
+    drive_time: 32 h 53 min
+    walk_km: 57
+    train_note: Bonassola ↔ Vernazza (~20 km)
+  route:
+  - Ostrava
+  - Vídeň
+  - Maria Alm
+  - Brenner
+  - Verona
+  - Bonassola
+  - Levanto
+  - Lannach
+  - Ostrava
+  start: '2026-06-27'
+  end: '2026-07-05'
+chapters:
+- id: day01
+  title: Vyrážíme
+  date: '2026-06-27'
+  location: Vídeň
+  route: Ostrava → Vídeň
+  country_flags:
+  - 🇨🇿
+  - 🇦🇹
+  stats:
+    drive_km: 277
+    drive_time: 3 h 43 min
+    walk_km: 10
+  mood: start cesty, očekávání, rodinný roadtrip
+  beats:
+  - type: chapter_card
+  - type: google-earth
+    from: Ostrava
+    to: Vienna
+  - type: story_beat
+    text: Balení auta a první kilometry z Ostravy
+  - type: story_beat
+    text: První tankování a cestovní nálada
+  - type: story_beat
+    text: Schönbrunn jako první zastávka
+  assets:
+    folder: assets/day01
+  asset_count: 0
+- id: day02
+  title: Do Alp
+  date: '2026-06-28'
+  location: Maria Alm
+  route: Vídeň → Maria Alm
+  country_flags:
+  - 🇦🇹
+  stats:
+    drive_km: 205
+    drive_time: 3 h 11 min
+    walk_km: 5
+  mood: první hory, dětské nadšení, alpský začátek
+  beats:
+  - type: chapter_card
+  - type: google-earth
+    from: Vienna
+    to: Maria Alm
+  - type: story_beat
+    text: Cesta přes Rakousko do hor
+  - type: story_beat
+    text: Příjezd do Maria Alm
+  - type: story_beat
+    text: Lanovka, Prinzensee a skluzavky
+  assets:
+    folder: assets/day02
+  asset_count: 0
+- id: day03
+  title: Starý Brenner
+  date: '2026-06-29'
+  location: Verona
+  route: Maria Alm → Verona
+  country_flags:
+  - 🇦🇹
+  - 🇮🇹
+  stats:
+    drive_km: 400
+    drive_time: 6 h 43 min
+    walk_km: 9
+  mood: epická cesta, Alpy, první Itálie
+  beats:
+  - type: chapter_card
+  - type: google-earth
+    from: Maria Alm
+    via:
+    - Schönberg im Stubaital
+    - Designer Outlet Brennero
+    to: Verona
+  - type: story_beat
+    text: Ranní odjezd z Maria Alm
+  - type: story_beat
+    text: Stará Brennerská silnice
+  - type: story_beat
+    text: Výhledy na Europabrücke
+  - type: story_beat
+    text: Sjezd do Itálie mezi vinicemi a hrady
+  - type: story_beat
+    text: Příjezd do Verony
+  assets:
+    folder: assets/day03
+  asset_count: 0
+- id: day04
+  title: Verona
+  date: '2026-06-30'
+  location: Verona
+  route: Verona
+  country_flags:
+  - 🇮🇹
+  stats:
+    drive_km: 4
+    drive_time: 33 min
+    walk_km: 11
+  mood: město, horko, historie, výhledy
+  beats:
+  - type: chapter_card
+  - type: city
+    location: Verona
+  - type: story_beat
+    text: Arena di Verona
+  - type: story_beat
+    text: Piazza delle Erbe
+  - type: story_beat
+    text: Giardino Giusti
+  - type: story_beat
+    text: Výhled z Castel San Pietro
+  - type: story_beat
+    text: Večerní Verona
+  assets:
+    folder: assets/day04
+  asset_count: 0
+- id: day05
+  title: K moři
+  date: '2026-07-01'
+  location: Bonassola
+  route: Verona → Bonassola
+  country_flags:
+  - 🇮🇹
+  stats:
+    drive_km: 290
+    drive_time: 4 h 34 min
+    walk_km: 0
+  mood: změna tempa, příjezd k moři, odpočinek
+  beats:
+  - type: chapter_card
+  - type: google-earth
+    from: Verona
+    to: Bonassola
+  - type: story_beat
+    text: Odjezd z Verony
+  - type: story_beat
+    text: Cesta přes severní Itálii
+  - type: story_beat
+    text: První příjezd k Ligurskému moři
+  - type: story_beat
+    text: Bonassola místo Janova
+  assets:
+    folder: assets/day05
+  asset_count: 0
+- id: day06
+  title: Cinque Terre
+  date: '2026-07-02'
+  location: Vernazza
+  route: Bonassola → Vernazza
+  country_flags:
+  - 🇮🇹
+  stats:
+    drive_km: 11
+    drive_time: 49 min
+    walk_km: 2
+  mood: Cinque Terre, barvy, moře, turistický den
+  beats:
+  - type: chapter_card
+  - type: train
+    from: Bonassola
+    to: Vernazza
+  - type: story_beat
+    text: Vlakem z Bonassoly
+  - type: story_beat
+    text: Vernazza a barevné domy
+  - type: story_beat
+    text: Moře, úzké uličky a výhledy
+  assets:
+    folder: assets/day06
+  asset_count: 0
+- id: day07
+  title: Tunely k Levantu
+  date: '2026-07-03'
+  location: Bonassola
+  route: Bonassola → Levanto → Bonassola
+  country_flags:
+  - 🇮🇹
+  stats:
+    drive_km: 19
+    drive_time: 1 h 09 min
+    walk_km: 5
+  mood: rodinné dobrodružství, kola, tunely, Ligurie
+  beats:
+  - type: chapter_card
+  - type: bike
+    from: Bonassola
+    to: Levanto
+  - type: story_beat
+    text: Bývalá železniční trať
+  - type: story_beat
+    text: Tunely podél moře
+  - type: story_beat
+    text: Syn na kole, rodiče běží
+  - type: story_beat
+    text: Levanto a pláž
+  assets:
+    folder: assets/day07
+  asset_count: 0
+- id: day08
+  title: Zpátky přes Alpy
+  date: '2026-07-04'
+  location: Lannach
+  route: Bonassola → Lannach
+  country_flags:
+  - 🇮🇹
+  - 🇦🇹
+  stats:
+    drive_km: 492
+    drive_time: 6 h 39 min
+    walk_km: 14
+  mood: loučení s mořem, návrat, dlouhý přejezd
+  beats:
+  - type: chapter_card
+  - type: google-earth
+    from: Bonassola
+    to: Lannach
+  - type: story_beat
+    text: Poslední ráno u moře
+  - type: story_beat
+    text: Levanto a poslední koupání
+  - type: story_beat
+    text: Dlouhý přejezd do Rakouska
+  - type: story_beat
+    text: Nocleh u Grazu
+  assets:
+    folder: assets/day08
+  asset_count: 0
+- id: day09
+  title: Domů
+  date: '2026-07-05'
+  location: Ostrava
+  route: Lannach → Ostrava
+  country_flags:
+  - 🇦🇹
+  - 🇨🇿
+  stats:
+    drive_km: 373
+    drive_time: 5 h 32 min
+    walk_km: 0
+  mood: návrat, únava, rekapitulace
+  beats:
+  - type: chapter_card
+  - type: google-earth
+    from: Lannach
+    to: Ostrava
+  - type: story_beat
+    text: Poslední rakouské ráno
+  - type: story_beat
+    text: Cesta domů
+  - type: story_beat
+    text: Závěrečné statistiky celé dovolené
+  assets:
+    folder: assets/day09
+  asset_count: 0

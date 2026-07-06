@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://travel-film-maker.local/schemas/trip.schema.json",
+  "title": "Travel Film Maker Trip Plan",
+  "type": "object",
+  "required": ["project", "trip", "days"],
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["title", "style", "language", "aspect_ratio"],
+      "properties": {
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "style": { "type": "string" },
+        "language": { "type": "string" },
+        "aspect_ratio": { "type": "string" }
+      }
+    },
+    "trip": {
+      "type": "object",
+      "properties": {
+        "totals": { "type": "object" },
+        "route": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "date", "title", "location", "route", "story_beats", "assets", "map", "mood"],
+        "properties": {
+          "id": { "type": "string" },
+          "date": { "type": "string" },
+          "title": { "type": "string" },
+          "location": { "type": "string" },
+          "route": { "type": "string" },
+          "country_flags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "stats": { "type": "object" },
+          "story_beats": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "assets": {
+            "type": "object",
+            "required": ["folder"],
+            "properties": {
+              "folder": { "type": "string" }
+            }
+          },
+          "map": { "type": "object" },
+          "mood": { "type": "string" }
+        }
+      }
+    }
+  }
+}

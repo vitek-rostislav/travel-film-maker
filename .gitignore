@@ -9,5 +9,8 @@ render/
 # Local
 .venv/
 .idea/
+.pytest_cache/
 __pycache__/
 *.pyc
+*.egg-info/
+edit_timeline.yaml
