@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://travel-film-maker.local/schemas/style.schema.json",
+  "title": "Travel Film Maker Style Model",
+  "type": "object",
+  "required": ["style"],
+  "properties": {
+    "style": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "chapter_card": { "type": "object" },
+        "map_style": { "type": "object" },
+        "typography": { "type": "object" },
+        "transitions": { "type": "object" },
+        "pacing": { "type": "object" },
+        "ken_burns": { "type": "object" },
+        "subtitles": { "type": "object" }
+      }
+    }
+  }
+}

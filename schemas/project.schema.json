@@ -1,24 +1,62 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://travel-film-maker.local/schemas/project.schema.json",
-  "title": "Travel Film Maker Project",
+  "title": "Travel Film Maker Project Model",
   "type": "object",
-  "required": ["version", "project", "sources", "output", "style"],
+  "required": ["project", "trip", "days"],
   "properties": {
-    "version": { "type": "integer", "const": 1 },
     "project": {
       "type": "object",
-      "required": ["id", "title", "timezone", "language", "style"],
+      "required": ["title", "style", "language", "aspect_ratio"],
       "properties": {
-        "id": { "type": "string" },
         "title": { "type": "string" },
-        "timezone": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "style": { "type": "string" },
         "language": { "type": "string" },
-        "style": { "type": "string" }
+        "aspect_ratio": { "type": "string" }
       }
     },
-    "sources": { "type": "object" },
-    "output": { "type": "object" },
-    "style": { "type": "object" }
+    "trip": {
+      "type": "object",
+      "properties": {
+        "totals": { "type": "object" },
+        "route": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "date", "title", "location", "route", "highlights", "assets", "map", "mood"],
+        "properties": {
+          "id": { "type": "string" },
+          "date": { "type": "string" },
+          "title": { "type": "string" },
+          "location": { "type": "string" },
+          "route": { "type": "string" },
+          "country_flags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "stats": { "type": "object" },
+          "highlights": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "assets": {
+            "type": "object",
+            "required": ["folder"],
+            "properties": {
+              "folder": { "type": "string" }
+            }
+          },
+          "map": { "type": "object" },
+          "mood": { "type": "string" }
+        }
+      }
+    }
   }
 }

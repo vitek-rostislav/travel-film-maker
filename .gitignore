@@ -1,16 +1,8 @@
-output/
-render/
-.cache/
-.DS_Store
-*.mp4
-*.mov
-*.zip
-
-# Local
+# Local development
 .venv/
 .idea/
 .pytest_cache/
 __pycache__/
 *.pyc
 *.egg-info/
-edit_timeline.yaml
+.DS_Store

@@ -22,12 +22,12 @@ dev = [
 ]
 
 [project.scripts]
-travel-film-maker = "travel_film_maker.cli.main:main"
-tfm = "travel_film_maker.cli.main:main"
+travel-film-maker = "travel_film_maker_cli.main:main"
+tfm = "travel_film_maker_cli.main:main"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["packages", "cli", "exporters"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = ["packages", "cli", "exporters"]

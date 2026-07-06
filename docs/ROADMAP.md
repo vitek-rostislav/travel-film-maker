@@ -2,20 +2,25 @@
 
 ## MVP
 
-- CLI commands: `init`, `ingest`, `analyze`, `plan`, `export`.
+- CLI commands: `doctor`, `validate`, `preview`, `init`, `ingest`, `analyze`, `plan`, `export`.
+- External travel project directories created by `travel-film-maker init <directory>`.
+- Project-local `.gitignore` that keeps media and generated output out of source control.
+- Project Model for trip metadata, days, routes, highlights, asset folders, and statistics.
+- Style Engine for documentary visual language decisions.
+- Asset Engine for folder scanning and basic media type detection.
+- Story Engine that emits scenes rather than editor-specific clips.
+- Timeline Engine that emits a normalized editor-agnostic timeline.
 - Filesystem import for photos and videos.
-- EXIF and GPX pairing.
-- YAML files for project, assets, story, and timeline data.
-- Basic best-photo selection by day.
-- FCPXML export for DaVinci Resolve.
+- Text-only preview output and normalized timeline JSON output.
 
 ## v0.2
 
 - Video metadata via `ffprobe`.
+- EXIF and GPX pairing.
 - Ken Burns planning for photos.
 - Day-based chapters.
 - Chapter cards, route stats, and basic map shots.
-- SQLite cache.
+- DaVinci exporter consumes normalized timeline.
 
 ## v0.3
 

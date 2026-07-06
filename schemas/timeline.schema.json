@@ -1,23 +1,19 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://travel-film-maker.local/schemas/timeline.schema.json",
-  "title": "Travel Film Maker Timeline",
+  "title": "Travel Film Maker Normalized Timeline",
   "type": "object",
   "required": ["timeline"],
   "properties": {
     "timeline": {
       "type": "object",
-      "required": ["fps", "tracks"],
+      "required": ["schema", "fps", "aspect_ratio", "duration_seconds", "items"],
       "properties": {
+        "schema": { "type": "string" },
         "fps": { "type": "integer" },
-        "tracks": {
-          "type": "object",
-          "required": ["video", "audio"],
-          "properties": {
-            "video": { "type": "array" },
-            "audio": { "type": "array" }
-          }
-        }
+        "aspect_ratio": { "type": "string" },
+        "duration_seconds": { "type": "integer" },
+        "items": { "type": "array" }
       }
     }
   }

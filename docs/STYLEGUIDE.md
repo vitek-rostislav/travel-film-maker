@@ -1,4 +1,4 @@
-# Style Guide
+# Style Engine
 
 The default style is a road-trip documentary inspired by long-form travel series.
 
@@ -16,6 +16,18 @@ The default style is a road-trip documentary inspired by long-form travel series
 - Use chapter cards sparingly.
 - Keep generated map shots functional and legible.
 
-## Export
+## Style Profile Responsibilities
 
-DaVinci Resolve is the primary finishing environment. Generated timelines should remain editable and avoid baking in decisions that belong in grading, sound, or final editorial passes.
+The Style Engine reads `style.yaml` from the external travel project and defines:
+
+- chapter card layout
+- map style
+- typography
+- transitions
+- pacing
+- Ken Burns behavior
+- subtitle placement and tone
+
+## Export Boundary
+
+Style decisions are applied before exporter-specific translation. DaVinci Resolve, Premiere, CapCut and FFmpeg exporters should consume the same normalized timeline data.

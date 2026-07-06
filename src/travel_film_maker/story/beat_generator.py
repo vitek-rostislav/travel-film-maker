@@ -1,1 +1,0 @@
-"""Story beat generation placeholder."""

@@ -1,56 +1,85 @@
 # Travel Film Maker
 
-Generate cinematic travel documentaries from photos and videos.
+Travel Film Maker is an open-source framework for building cinematic travel documentaries from external project folders containing trip metadata, photos, videos, GPS data and music.
 
-Inspired by Long Way Round.
+This repository contains only the framework. It must not contain personal travel projects, photos, videos, music, GPS tracks or rendered output.
 
-## Status
+## Framework vs Travel Project
 
-This repository currently contains the first modular Python scaffold:
+The framework is this repository:
 
-- YAML-based project format.
-- CLI commands for project initialization, ingest, analysis, planning, and export.
-- Editor-neutral timeline model.
-- Initial FCPXML export path for DaVinci Resolve.
-
-## Quick start
-
-```bash
-python -m travel_film_maker.cli.main --help
+```text
+travel-film-maker/
+  packages/
+  cli/
+  exporters/
+  docs/
+  schemas/
+  tests/
+  README.md
 ```
 
-When installed as a package:
+A travel project lives outside this repository, for example:
 
-```bash
-tfm init --title "Balkan Road Trip" --timezone Europe/Prague
-tfm ingest
-tfm analyze
-tfm plan
-tfm export --format fcpxml
+```text
+~/Movies/Europe2026/
+  project.yaml
+  style.yaml
+  assets/
+    day01/
+    day02/
+  gps/
+  music/
+  output/
 ```
 
-During local development without installation:
+The framework reads a travel project directory and produces editor-agnostic planning data. Exporters can later translate that data for DaVinci Resolve, Premiere, CapCut, FFmpeg or other tools.
+
+## Create A Project
 
 ```bash
-PYTHONPATH=src python -m travel_film_maker.cli.main --project-dir ./demo init --title "Demo Trip"
-PYTHONPATH=src python -m travel_film_maker.cli.main --project-dir ./demo ingest
-PYTHONPATH=src python -m travel_film_maker.cli.main --project-dir ./demo analyze
-PYTHONPATH=src python -m travel_film_maker.cli.main --project-dir ./demo plan
-PYTHONPATH=src python -m travel_film_maker.cli.main --project-dir ./demo export --format fcpxml
+travel-film-maker init ~/Movies/Europe2026 --title "Europe 2026"
 ```
 
-## Trip planning
+This creates:
 
-The root `timeline.yaml` can be used as a human-authored trip plan with `project`, `trip`, and `days` sections. When this format is detected, `tfm plan` preserves it and writes the generated edit timeline to `edit_timeline.yaml` instead of overwriting the source plan.
+- `project.yaml`
+- `style.yaml`
+- `assets/`
+- `gps/`
+- `music/`
+- `output/`
+- a project-local `.gitignore`
 
-## Planned features
+The generated project `.gitignore` excludes personal media and generated files from that project repository.
 
-- Google Photos import
-- GPS extraction
-- Google Earth transitions
-- DaVinci Resolve timeline generation
-- AI photo selection
-- Day statistics
-- Ken Burns animation
-- Automatic chapter cards
-- Soundtrack support
+## Work With A Project
+
+From anywhere:
+
+```bash
+travel-film-maker validate ~/Movies/Europe2026
+travel-film-maker preview ~/Movies/Europe2026
+travel-film-maker render ~/Movies/Europe2026
+```
+
+From inside a project:
+
+```bash
+cd ~/Movies/Europe2026
+travel-film-maker validate .
+travel-film-maker preview .
+travel-film-maker render .
+```
+
+`render` currently builds a normalized timeline JSON in `output/`. It does not render video yet.
+
+## Development
+
+```bash
+python -m pip install -e ".[dev]"
+travel-film-maker doctor
+python -m pytest
+```
+
+The framework repository `.gitignore` is intentionally limited to local development files. User media belongs in external travel project directories, never in this repository.

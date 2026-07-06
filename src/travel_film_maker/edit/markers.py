@@ -1,1 +1,0 @@
-"""Timeline marker planning placeholder."""

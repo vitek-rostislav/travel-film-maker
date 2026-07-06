@@ -1,1 +1,0 @@
-"""Video scene detection placeholder."""

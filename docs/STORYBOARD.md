@@ -1,16 +1,23 @@
-# Storyboard Model
+# Story Engine
 
-The storyboard layer turns chronological media into documentary chapters and beats.
+The Story Engine turns the Project Model, Style Profile and scanned assets from an external travel project into documentary scenes.
 
-Initial beat vocabulary:
+It should not produce DaVinci clips directly. It produces editor-agnostic scene descriptions with intent, duration hints, metadata and optional assets.
+
+Initial scene vocabulary:
 
 - `chapter_card`
-- `map_route`
-- `establishing`
+- `map`
+- `highlight`
 - `road_sequence`
 - `place_sequence`
-- `problem`
-- `pause`
-- `evening_reflection`
+- `reflection`
 
-The first implementation groups assets by capture date and emits a standard day structure. Later versions should use GPS movement, media density, scene detection, and manual notes to produce stronger narrative structure.
+Current implementation:
+
+- creates one chapter card per day
+- creates one map scene when route map data is available
+- turns each project highlight into a highlight scene
+- applies pacing hints from the Style Engine
+
+Later versions should use GPS movement, media density, scene detection and manual notes to produce stronger narrative structure.
