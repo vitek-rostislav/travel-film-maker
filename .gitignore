@@ -1,0 +1,7 @@
+output/
+render/
+.cache/
+.DS_Store
+*.mp4
+*.mov
+*.zip
